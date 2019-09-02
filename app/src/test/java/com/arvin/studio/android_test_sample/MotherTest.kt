@@ -31,5 +31,6 @@ class MotherTest {
         // Then
         verify { mother.inform(any()) }
         assertEquals(30, kid.money)
+        assertEquals("Arvin", mother.giveMsgArvin())
     }
 }
