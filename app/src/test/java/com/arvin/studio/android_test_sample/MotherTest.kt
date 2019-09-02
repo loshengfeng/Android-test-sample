@@ -29,7 +29,7 @@ class MotherTest {
         // When
         kid.wantMoney()
         // Then
-        verify { mother.inform(any()) }
+        verify { mother.giveMsgArvin() }
         assertEquals(30, kid.money)
     }
 }
