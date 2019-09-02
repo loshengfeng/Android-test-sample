@@ -1,9 +1,9 @@
 package com.arvin.studio.android_test_sample
 
-import io.mockk.MockKAnnotations
-import io.mockk.every
+import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import junit.framework.Assert.assertEquals
+import net.bytebuddy.matcher.ElementMatchers.any
 import org.junit.Before
 import org.junit.Test
 
@@ -24,10 +24,12 @@ class MotherTest {
     fun wantMoney() {
         // Given
         every { mother.giveMoney() } returns 30
+        every { mother.inform(any()) } just Runs
 
         // When
         kid.wantMoney()
         // Then
+        verify { mother.inform(any()) }
         assertEquals(30, kid.money)
     }
 }

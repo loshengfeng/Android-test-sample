@@ -5,6 +5,7 @@ class Kid(private val mother: Mother) {
         private set
 
     fun wantMoney() {
+        mother.inform(money)
         money += mother.giveMoney()
     }
 }
